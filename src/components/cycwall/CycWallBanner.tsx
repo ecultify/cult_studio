@@ -1,4 +1,3 @@
-
 import FadeInView from '../animations/FadeInView';
 import AnimatedButton from '../ui/AnimatedButton';
 
@@ -30,7 +29,9 @@ export default function CycWallBanner() {
               Explore Possibilities
             </AnimatedButton>
             <AnimatedButton 
-              href="/contact" 
+              href="https://calendly.com/ecultify-1/cyc-wall-studio-booking"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="secondary"
             >
               Book Now

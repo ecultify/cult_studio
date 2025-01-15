@@ -59,7 +59,7 @@ export default function TechnicalSpecs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-[#6B46C1] rounded-2xl p-8 text-white"
+              className="bg-[#f78800] rounded-2xl p-8 text-white"
             >
               <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6">
                 {spec.icon}

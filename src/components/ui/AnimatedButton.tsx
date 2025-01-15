@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -9,6 +8,8 @@ interface AnimatedButtonProps {
   variant?: 'primary' | 'secondary' | 'outline';
   icon?: boolean;
   className?: string;
+  target?: string;
+  rel?: string;
 }
 
 export default function AnimatedButton({
@@ -17,10 +18,12 @@ export default function AnimatedButton({
   onClick,
   variant = 'primary',
   icon = true,
-  className = ''
+  className = '',
+  target,
+  rel
 }: AnimatedButtonProps) {
   const baseStyles = "inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold transition-colors";
-  
+
   const variants = {
     primary: "bg-[#f78800] text-white hover:bg-[#e67a00]",
     secondary: "bg-white/10 backdrop-blur-lg text-white hover:bg-white/20 border border-white/20",
@@ -43,7 +46,12 @@ export default function AnimatedButton({
 
   if (href) {
     return (
-      <motion.a href={href} {...motionProps}>
+      <motion.a
+        href={href}
+        target={target}
+        rel={rel}
+        {...motionProps}
+      >
         {buttonContent}
       </motion.a>
     );
