@@ -1,5 +1,5 @@
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ScrollContainer from './components/layout/ScrollContainer';
@@ -22,6 +22,7 @@ export default function App() {
           </Routes>
         </ScrollContainer>
         <Footer />
+        <SpeedInsights />
       </div>
     </Router>
   );
