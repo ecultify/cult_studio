@@ -37,10 +37,10 @@ export default function Hero() {
 
           <FadeInView delay={0.3}>
             <div className="mt-12 flex flex-wrap justify-center gap-6">
-              <Button href="/about" variant="primary" size="lg">
+              <Button to="/about" variant="primary" size="lg">
                 Learn More About Us
               </Button>
-              <Button href="/contact" variant="ghost" size="lg">
+              <Button to="/contact" variant="ghost" size="lg">
                 Get in Touch
               </Button>
             </div>

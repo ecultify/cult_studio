@@ -34,7 +34,7 @@ export default function CycWallUSP() {
             Experience the versatility and quality of our professional cyclorama wall studio
           </p>
           <Button
-            href="/cyc-wall"  // This is the correct path that matches your routes
+            to="/cyc-wall" 
             variant="primary"
             className="bg-purple-600 hover:bg-purple-700"
           >

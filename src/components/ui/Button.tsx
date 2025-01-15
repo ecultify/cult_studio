@@ -1,25 +1,27 @@
-
 import { motion } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface ButtonProps {
   children: React.ReactNode;
-  href?: string;
+  to?: string;  // Changed from href to to for React Router
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   icon?: LucideIcon;
   className?: string;
   onClick?: () => void;
+  external?: boolean; // Add this to handle external links
 }
 
 export default function Button({
   children,
-  href,
+  to,
   variant = 'primary',
   size = 'md',
   icon: Icon,
   className = '',
-  onClick
+  onClick,
+  external = false
 }: ButtonProps) {
   const baseStyles = "inline-flex items-center justify-center font-semibold transition-all duration-300";
   
@@ -49,14 +51,27 @@ export default function Button({
     className: `${baseStyles} ${variants[variant]} ${sizes[size]} rounded-lg ${className}`
   };
 
-  if (href) {
+  // Handle different types of buttons/links
+  if (to) {
+    if (external) {
+      // External link using regular anchor tag
+      return (
+        <motion.a href={to} target="_blank" rel="noopener noreferrer" {...motionProps}>
+          {buttonContent}
+        </motion.a>
+      );
+    }
+    // Internal link using React Router's Link
     return (
-      <motion.a href={href} {...motionProps}>
-        {buttonContent}
-      </motion.a>
+      <motion.div {...motionProps}>
+        <Link to={to} className="flex items-center">
+          {buttonContent}
+        </Link>
+      </motion.div>
     );
   }
 
+  // Regular button
   return (
     <motion.button onClick={onClick} {...motionProps}>
       {buttonContent}
